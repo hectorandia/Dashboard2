@@ -1,0 +1,292 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{36B9F0DB-FB88-4498-82E0-F10D4536FA15}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Dashboard</RootNamespace>
+    <AssemblyName>Dashboard</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <TargetFrameworkProfile />
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <DocumentationFile>bin\Debug\Dashboard.XML</DocumentationFile>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject>Dashboard.Program</StartupObject>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="MetroFramework, Version=1.4.0.0, Culture=neutral, PublicKeyToken=5f91a84759bf584a, processorArchitecture=MSIL">
+      <HintPath>..\packages\MetroModernUI.1.4.0.0\lib\net\MetroFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="MetroFramework.Design, Version=1.4.0.0, Culture=neutral, PublicKeyToken=5f91a84759bf584a, processorArchitecture=MSIL">
+      <HintPath>..\packages\MetroModernUI.1.4.0.0\lib\net\MetroFramework.Design.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="MetroFramework.Fonts, Version=1.4.0.0, Culture=neutral, PublicKeyToken=5f91a84759bf584a, processorArchitecture=MSIL">
+      <HintPath>..\packages\MetroModernUI.1.4.0.0\lib\net\MetroFramework.Fonts.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.VisualBasic" />
+    <Reference Include="System" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.ServiceProcess" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Windows.Forms.DataVisualization" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Controlling\FaxController.cs" />
+    <Compile Include="Controlling\IPrio0Controller.cs" />
+    <Compile Include="Controlling\MfIControllerPrio0.cs" />
+    <Compile Include="Controlling\PrioController.cs" />
+    <Compile Include="MainWindow.Designer.cs">
+      <DependentUpon>MainWindow.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MessageWindow\WindowFax.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Controlling\ServiceControllerObject.cs" />
+    <Compile Include="MessageWindow\IWindowFaxState.cs" />
+    <Compile Include="MessageWindow\IWindowPrioState.cs" />
+    <Compile Include="MessageWindow\IWindowServiceState.cs" />
+    <Compile Include="MessageWindow\MessageWindow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MessageWindow\WindowFaxActive.cs" />
+    <Compile Include="MessageWindow\WindowFaxInactive.cs" />
+    <Compile Include="MessageWindow\WindowPrio.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MessageWindow\WindowPrioActive.cs" />
+    <Compile Include="MessageWindow\WindowPrioInactive.cs" />
+    <Compile Include="MessageWindow\WindowService.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MessageWindow\WindowServiceActive.cs" />
+    <Compile Include="MessageWindow\WindowServiceInactive.cs" />
+    <Compile Include="Panels\OptionPanel\ConcreteOptionPanel\OptionColor.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Panels\OptionPanel\ConcreteOptionPanel\OptionFont.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Panels\OptionPanel\ConcreteOptionPanel\OptionPrio0.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Panels\OptionPanel\ConcreteOptionPanel\OptionRefreshrates.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Panels\OptionPanel\HelpPanel\CheckBoxPanel.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Panels\OptionPanel\HelpPanel\ColorButton.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Panels\OptionPanel\HelpPanel\ColorDialogPanel.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Panels\OptionPanel\HelpPanel\FileBoxPanel.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Panels\OptionPanel\HelpPanel\FontTextBoxPanel.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Panels\OptionPanel\HelpPanel\OptionButtonsPanel.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Panels\OptionPanel\ConcreteOptionPanel\OptionCommon.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Panels\OptionPanel\HelpPanel\FolderBoxPanel.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Panels\OptionPanel\HelpPanel\ScreenChoicePanel.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Panels\OptionPanel\HelpPanel\TableTimingPanel.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Panels\OptionPanel\OptionPanel.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Panels\OptionPanel\ConcreteOptionPanel\OptionPaths.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="OptionWindow\OptionWindow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="OptionWindow\TreeNodeObject.cs" />
+    <Compile Include="Panels\InfoPanel\HDDLabel.cs" />
+    <Compile Include="Panels\InfoPanel\IInfoPanelState.cs" />
+    <Compile Include="Panels\InfoPanel\InfoPanelConnected.cs" />
+    <Compile Include="Panels\InfoPanel\InfoPanelDisconnected.cs" />
+    <Compile Include="Panels\InfoPanel\StatusPanelIP.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Panels\InfoPanel\StatusPanelMac.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Panels\InfoPanel\StatusPanelUser.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Panels\OptionPanel\HelpPanel\TextBoxPanel.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Panels\ServerPanel\CapturePanel.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Panels\FactoryPanels.cs" />
+    <Compile Include="MainWindow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Panels\InfoPanel\InfoPanel.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Panels\IPanel.cs" />
+    <Compile Include="Panels\MotherPanel.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Panels\ServerPanel\IServerPanelState.cs" />
+    <Compile Include="Panels\ServerPanel\ServerPanelConnected.cs" />
+    <Compile Include="Panels\ServerPanel\ServerPanelDisconnected.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Panels\InfoPanel\ProgressBarPanel.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Panels\InfoPanel\ProgressBarPanelCPU.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Panels\InfoPanel\ProgressBarPanelRAM.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Panels\ServerPanel\ServerPanel.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Panels\InfoPanel\StatusPanel.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Panels\InfoPanel\StatusPanelHDD.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Panels\InfoPanel\StatusPanelServerName.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Panels\TablePanel.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Panels\ServerPanel\WorkerPanel.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.0">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4 %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.4.5">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 4.5</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Querry\Querry\Query.csproj">
+      <Project>{39f032d1-302e-4bc7-b178-85a72912ff8c}</Project>
+      <Name>Query</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Server\Server\Server.csproj">
+      <Project>{393ffd42-117e-48dc-a776-9a4590d1e9e5}</Project>
+      <Name>Server</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
