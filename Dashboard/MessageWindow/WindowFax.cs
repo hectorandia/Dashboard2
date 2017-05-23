@@ -174,7 +174,7 @@ namespace Dashboard
                 if (!pathToCheck.StatusOk)
                 {
                     AddRow(pathToCheck);
-                }   
+                }
             }
         }
 
@@ -193,8 +193,8 @@ namespace Dashboard
             }
             else
             {
-                table.Rows.Add(pathToCheck.Path,
-                    pathToCheck.NumberOfFiles.ToString(), pathToCheck.OldestDateTime());
+                table.Rows.Add(pathToCheck.Path, pathToCheck.NumberOfFiles.ToString(), pathToCheck.OldestDateTime());
+               
             }
         }
 

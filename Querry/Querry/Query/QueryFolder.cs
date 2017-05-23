@@ -210,7 +210,7 @@ namespace Query
                     number++;
                 }
             }
-
+            MessageBox.Show("Number of Files: " + number.ToString());
             return number;
         }
 
@@ -221,14 +221,16 @@ namespace Query
         public int NumberOfDirectories()
         {
             int number = 0;
-
+            
             foreach (DirectoryInfo director in directory.GetDirectories("*.*"))
             {
+                MessageBox.Show("Number of Directorys: " + number.ToString());
                 if (!CheckDirectoryTime(director))
                 {
                     number++;
                 }
             }
+            
             return number;
         }
 

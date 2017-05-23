@@ -27,7 +27,7 @@ namespace Dashboard
             pathsToCheck = Options.PathsToCheck;
             foreach (PathToCheck pathToCheck in pathsToCheck)
             {
-                pathToCheck.QueryFolder = new QueryFolder(pathToCheck.Path, pathToCheck.TimeMinutes);
+                pathToCheck.QueryFolder = new QueryFolder(pathToCheck.Path, pathToCheck.TimeMinutes);               
             }
         }
 
@@ -126,7 +126,7 @@ namespace Dashboard
             }
         }
 
-
+        
 
 
     }
