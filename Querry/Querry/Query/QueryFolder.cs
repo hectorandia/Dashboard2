@@ -210,7 +210,6 @@ namespace Query
                     number++;
                 }
             }
-            MessageBox.Show("Number of Files: " + number.ToString());
             return number;
         }
 
@@ -224,7 +223,6 @@ namespace Query
             
             foreach (DirectoryInfo director in directory.GetDirectories("*.*"))
             {
-                MessageBox.Show("Number of Directorys: " + number.ToString());
                 if (!CheckDirectoryTime(director))
                 {
                     number++;

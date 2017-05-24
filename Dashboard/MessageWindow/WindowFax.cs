@@ -193,8 +193,7 @@ namespace Dashboard
             }
             else
             {
-                table.Rows.Add(pathToCheck.Path, pathToCheck.NumberOfFiles.ToString(), pathToCheck.OldestDateTime());
-               
+                table.Rows.Add(pathToCheck.Path, pathToCheck.NumberOfFiles.ToString() +" - " + pathToCheck.NumberOfFolders.ToString(), pathToCheck.OldestDateTime());              
             }
         }
 

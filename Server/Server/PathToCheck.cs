@@ -17,7 +17,8 @@ namespace Server
         private Int16 timeMinutes;
         private QueryFolder queryFolder;
         private bool statusOk = true;
-        private static int numberOfFiles = 0;
+        private int numberOfFiles = 0;
+        private int numberOfFolders = 0;
 
         /// <summary>
         /// creates an instance of PathToCheck
@@ -32,6 +33,8 @@ namespace Server
             this.timeMinutes = timeMinutes;
             this.checkForfiles = checkForfiles;
             this.checkForDirectories = checkForDirectories;
+            queryFolder = new QueryFolder(path, timeMinutes);
+            
         }
 
         /// <summary>
@@ -67,7 +70,7 @@ namespace Server
                 if (statusOk && checkForDirectories && !CheckDirectories())
                 {
                     this.statusOk = false;
-                    numberOfFiles = GetNumberOfFiles();
+                    numberOfFolders = GetNumberOfFolders();
                     if (numberOfFiles > 0)
                     {
                         LogFile.Log(numberOfFiles + " Datei(en) in überwachten Ordnern detektiert: " + path);
@@ -99,8 +102,9 @@ namespace Server
 
                 if (numberOfFiles != GetNumberOfFiles() && !statusOk)
                 {
-                    numberOfFiles = GetNumberOfFiles();
-                    LogFile.Log(numberOfFiles + " Datei(en) in überwachten Ordnern detektiert: " + path);
+                    //numberOfFiles = GetNumberOfFiles();
+                    numberOfFolders = GetNumberOfFolders();
+                    LogFile.Log(numberOfFolders + " Ordner in überwachten Ordnern detektiert: " + path);
                     return true;
                 }
             }
@@ -123,6 +127,14 @@ namespace Server
             }
         }
 
+        public int NumberOfFolders
+        {
+            get
+            {
+                return numberOfFolders;
+            }
+        }
+
         private int GetNumberOfFiles()
         {
             int number = 0;
@@ -140,10 +152,25 @@ namespace Server
             }
             catch (Exception)
             {
-                number = -1;
+                number = number;
             }
-            
+            return number;
+        }
 
+        private int GetNumberOfFolders()
+        {
+            int number = 0;
+            try
+            {
+                if (checkForDirectories)
+                {
+                    number += queryFolder.NumberOfDirectories();
+                }
+            }
+            catch (Exception)
+            {
+                number = number;
+            }
             return number;
         }
 
@@ -192,17 +219,17 @@ namespace Server
         /// <summary>
         /// returns or sets the instance of QueryFolder
         /// </summary>
-        public QueryFolder QueryFolder
-        {
-            get
-            {
-                return queryFolder;
-            }
-            set
-            {
-                queryFolder = value;
-            }
-        }
+        //public QueryFolder QueryFolder
+        //{
+        //    get
+        //    {
+        //        return queryFolder;
+        //    }
+        //    set
+        //    {
+        //        queryFolder = value;
+        //    }
+        //}
 
         /// <summary>
         /// returns the observed path

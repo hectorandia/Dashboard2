@@ -25,10 +25,10 @@ namespace Dashboard
         private FaxController()
         {
             pathsToCheck = Options.PathsToCheck;
-            foreach (PathToCheck pathToCheck in pathsToCheck)
-            {
-                pathToCheck.QueryFolder = new QueryFolder(pathToCheck.Path, pathToCheck.TimeMinutes);               
-            }
+            //foreach (PathToCheck pathToCheck in pathsToCheck)
+            //{
+            //    pathToCheck.QueryFolder = new QueryFolder(pathToCheck.Path, pathToCheck.TimeMinutes);               
+            //}
         }
 
         /// <summary>
@@ -102,7 +102,6 @@ namespace Dashboard
                             changed = true;
                         }
                     }
-
                     if (changed)
                     {
                         NotifyFaxWindow();
