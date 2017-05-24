@@ -100,7 +100,7 @@ namespace Server
                     }
                 }
 
-                if (numberOfFiles != GetNumberOfFiles() && !statusOk)
+                if (numberOfFolders != GetNumberOfFolders() && !statusOk)
                 {
                     //numberOfFiles = GetNumberOfFiles();
                     numberOfFolders = GetNumberOfFolders();
