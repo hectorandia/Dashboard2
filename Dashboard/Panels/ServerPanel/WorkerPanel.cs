@@ -17,9 +17,18 @@ namespace Dashboard
         /// <param name="server"></param>
         public WorkerPanel(ServerRZ server) : base(server)
         {
-            this.SetBackColor(Options.BackColorWorkerPanel);
-            this.backColorNormal = Options.BackColorWorkerPanel;
-            ServiceControllerObject.RegisterObserver(this);
+            if(server.GetType() == typeof(AidaWorker))
+            {
+                this.SetBackColor(Options.BackColorAidaPanel);
+                this.backColorNormal = Options.BackColorAidaPanel;
+                ServiceControllerObject.RegisterObserver(this);
+            }
+            else
+            {
+                this.SetBackColor(Options.BackColorWorkerPanel);
+                this.backColorNormal = Options.BackColorWorkerPanel;
+                ServiceControllerObject.RegisterObserver(this);
+            }     
         }
 
         /// <summary>
@@ -37,5 +46,6 @@ namespace Dashboard
                 this.SetBackColor(Options.BackColorWorkerPanel);
             }
         }
+
     }
 }

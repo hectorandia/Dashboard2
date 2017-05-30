@@ -142,7 +142,6 @@ namespace Dashboard
             optionPanels.Add(optionColors);
             optionPanels.Add(optionFonts);
 
-
             TreeNodeObject pathsNode = new TreeNodeObject("Pfade", optionPaths);
             panelOptions.Controls.Add(optionPaths);
             pathsNode.Name = "Pfade";
@@ -242,9 +241,6 @@ namespace Dashboard
                 return optionPanels;
             }
         }
-
-
-
 
         /// <summary>
         /// returns the width of the window

@@ -17,6 +17,7 @@ namespace Server
     {
         private static Color backColorCapturePanel;
         private static Color backColorWorkerPanel;
+        private static Color backColorAidaPanel;
 
         private static Color backColorServerPanelByProblems;
 
@@ -170,6 +171,8 @@ namespace Server
                 backColorCapturePanel = Color.FromArgb ( int.Parse(ConfigurationManager.AppSettings["backColorCapturePanel"],
                     System.Globalization.NumberStyles.HexNumber));
                 backColorWorkerPanel = Color.FromArgb(int.Parse(ConfigurationManager.AppSettings["backColorWorkerPanel"],
+                    System.Globalization.NumberStyles.HexNumber));
+                backColorAidaPanel = Color.FromArgb(int.Parse(ConfigurationManager.AppSettings["backColorAidaPanel"],
                     System.Globalization.NumberStyles.HexNumber));
                 backColorServerDisconnect = Color.FromArgb(int.Parse(ConfigurationManager.AppSettings["backColorServerDisconnect"],
                     System.Globalization.NumberStyles.HexNumber));
@@ -402,6 +405,22 @@ namespace Server
             {
                 backColorWorkerPanel = value;
                 Options.SetConfig("backColorWorkerPanel", backColorWorkerPanel.ToArgb().ToString("X"));
+            }
+        }
+
+        /// <summary>
+        /// returns the back color fpr the worker panel
+        /// </summary>
+        public static Color BackColorAidaPanel
+        {
+            get
+            {
+                return backColorAidaPanel;
+            }
+            set
+            {
+                backColorAidaPanel = value;
+                Options.SetConfig("backColorAidaPanel", backColorAidaPanel.ToArgb().ToString("X"));
             }
         }
 

@@ -17,6 +17,7 @@ namespace Dashboard
         private ColorButton fontColorButton;
         private ColorButton backColorCapturePanel;
         private ColorButton backColorWorkerPanel;
+        private ColorButton backColorAidaPanel;
         private ColorButton backColorServerDisconnect;
         private ColorButton backColorServerPanelByProblems;
         private ColorButton ramColor;
@@ -47,6 +48,7 @@ namespace Dashboard
             fontColorButton = new ColorButton("Schrift", Options.FontColor);
             backColorCapturePanel = new ColorButton("Hintergrundfarbe Capture", Options.BackColorCapturePanel);
             backColorWorkerPanel = new ColorButton("Hintergrundfarbe Worker", Options.BackColorWorkerPanel);
+            backColorAidaPanel = new ColorButton("Hintergrundfarbe Aida", Options.BackColorAidaPanel);
             backColorServerDisconnect = new ColorButton("Hintergrundfarbe bei Disconnect", Options.BackColorServerDisconnect);
             backColorServerPanelByProblems = new ColorButton("Hintergrundfarbe bei Problemen", Options.BackColorServerPanelByProblems);
             ramColor = new ColorButton("Balkenfarbe RAM", Options.RamColor);
@@ -68,6 +70,7 @@ namespace Dashboard
             this.AddControl(fontColorButton);
             this.AddControl(backColorCapturePanel);
             this.AddControl(backColorWorkerPanel);
+            this.AddControl(backColorAidaPanel);
             this.AddControl(backColorServerDisconnect);
             this.AddControl(backColorServerPanelByProblems);
             this.AddControl(ramColor);
@@ -101,6 +104,7 @@ namespace Dashboard
                 Options.FontColor = fontColorButton.Color;
                 Options.BackColorCapturePanel = backColorCapturePanel.Color;
                 Options.BackColorWorkerPanel = backColorWorkerPanel.Color;
+                Options.BackColorAidaPanel = backColorAidaPanel.Color;
                 Options.BackColorServerDisconnect = backColorServerDisconnect.Color;
                 Options.BackColorServerPanelByProblems = backColorServerPanelByProblems.Color;
                 Options.RamColor = ramColor.Color;
